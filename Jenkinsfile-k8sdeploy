@@ -15,4 +15,7 @@ node {
             app.push("latest")
         }
     }
+    stage('k8s deploy') {
+        sh "kubectl set image deploy nodejsapp nodejsapp=brainupgrade/nodejsapp:${env.BUILD_NUMBER}"
+    }  
 }
